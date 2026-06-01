@@ -1,0 +1,210 @@
+{
+  "lastUpdated": "2026-06-01T09:00:00+09:00",
+  "source": "サンプルデータ（実運用ではスクレイピングで更新。scripts/scrape.ts 参照）",
+  "banks": [
+    {
+      "id": "sbi-shinsei",
+      "name": "SBI新生銀行",
+      "category": "net",
+      "variableRate": 0.29,
+      "rateNote": "パワースマート住宅ローン 変動金利（半年型）タイプ。当初借入金利。",
+      "campaign": {
+        "title": "事務取扱手数料 定額型あり・Tポイント進呈キャンペーン",
+        "deadline": null
+      },
+      "screening": {
+        "minIncome": 300,
+        "conditions": ["安定継続した収入", "団信加入必須", "完済時満80歳未満"]
+      },
+      "officialUrl": "https://www.sbishinsei.co.jp/loan/mortgage/",
+      "updatedAt": "2026-06-01T09:00:00+09:00"
+    },
+    {
+      "id": "sbi-net",
+      "name": "住信SBIネット銀行",
+      "category": "net",
+      "variableRate": 0.298,
+      "rateNote": "通期引下げプラン 変動金利。WEB申込・新規借入の場合。",
+      "campaign": {
+        "title": "全疾病保障を無料付帯",
+        "deadline": null
+      },
+      "screening": {
+        "minIncome": 300,
+        "conditions": ["前年度税込年収300万円以上", "完済時満80歳未満", "団信加入必須"]
+      },
+      "officialUrl": "https://www.netbk.co.jp/contents/lineup/home-loan/",
+      "updatedAt": "2026-06-01T09:00:00+09:00"
+    },
+    {
+      "id": "aujibun",
+      "name": "auじぶん銀行",
+      "category": "net",
+      "variableRate": 0.329,
+      "rateNote": "全期間引下げプラン 変動金利。au金利優遇割の適用前。",
+      "campaign": {
+        "title": "au金利優遇割で年-0.10%（じぶんでんき・auモバイル）",
+        "deadline": "2026-09-30"
+      },
+      "screening": {
+        "minIncome": 200,
+        "conditions": ["前年度年収200万円以上", "完済時満80歳未満", "がん50%保障団信付帯"]
+      },
+      "officialUrl": "https://www.jibunbank.co.jp/products/homeloan/",
+      "updatedAt": "2026-06-01T09:00:00+09:00"
+    },
+    {
+      "id": "paypay",
+      "name": "PayPay銀行",
+      "category": "net",
+      "variableRate": 0.345,
+      "rateNote": "住宅ローン 変動金利。全期間引下げ。",
+      "campaign": {
+        "title": "一般団信・がん50%保障団信を金利上乗せなしで付帯",
+        "deadline": null
+      },
+      "screening": {
+        "minIncome": 200,
+        "conditions": ["前年度年収200万円以上", "完済時満80歳未満"]
+      },
+      "officialUrl": "https://www.paypay-bank.co.jp/mortgage/index.html",
+      "updatedAt": "2026-06-01T09:00:00+09:00"
+    },
+    {
+      "id": "mufg",
+      "name": "三菱UFJ銀行",
+      "category": "megabank",
+      "variableRate": 0.345,
+      "rateNote": "ずっと一律金利プラン 変動金利（住宅ローン取扱手数料型）。最大優遇適用後。",
+      "campaign": {
+        "title": "7大疾病保障付き住宅ローン ビッグ&セブン Plus",
+        "deadline": null
+      },
+      "screening": {
+        "minIncome": 200,
+        "conditions": ["借入時年齢20歳以上70歳の誕生日まで", "完済時満80歳の誕生日まで", "団信加入必須"]
+      },
+      "officialUrl": "https://www.bk.mufg.jp/kariru/jutaku/",
+      "updatedAt": "2026-06-01T09:00:00+09:00"
+    },
+    {
+      "id": "mizuho",
+      "name": "みずほ銀行",
+      "category": "megabank",
+      "variableRate": 0.375,
+      "rateNote": "住宅ローン 変動金利方式。ネット住宅ローン・最大引下げ適用後。",
+      "campaign": {
+        "title": "ローン取扱手数料型で金利優遇",
+        "deadline": null
+      },
+      "screening": {
+        "minIncome": 200,
+        "conditions": ["借入時年齢満18歳以上満71歳未満", "完済時満81歳未満", "団信加入必須"]
+      },
+      "officialUrl": "https://www.mizuhobank.co.jp/loan/jutaku/index.html",
+      "updatedAt": "2026-06-01T09:00:00+09:00"
+    },
+    {
+      "id": "smtb",
+      "name": "三井住友信託銀行",
+      "category": "other",
+      "variableRate": 0.38,
+      "rateNote": "住宅ローン 変動金利。最大引下げ適用後。",
+      "campaign": {
+        "title": "リレープラン（取引に応じた金利引下げ）",
+        "deadline": null
+      },
+      "screening": {
+        "minIncome": 300,
+        "conditions": ["安定継続した収入", "完済時満80歳未満", "団信加入必須"]
+      },
+      "officialUrl": "https://www.smtb.jp/personal/loan/house/",
+      "updatedAt": "2026-06-01T09:00:00+09:00"
+    },
+    {
+      "id": "aeon",
+      "name": "イオン銀行",
+      "category": "other",
+      "variableRate": 0.38,
+      "rateNote": "住宅ローン 変動金利（定率型）。金利プラン・最大引下げ適用後。",
+      "campaign": {
+        "title": "イオングループでの買い物が毎日5%OFF（特典付き）",
+        "deadline": null
+      },
+      "screening": {
+        "minIncome": 100,
+        "conditions": ["前年度年収100万円以上", "完済時満80歳未満", "団信加入必須"]
+      },
+      "officialUrl": "https://www.aeonbank.co.jp/housing_loan/",
+      "updatedAt": "2026-06-01T09:00:00+09:00"
+    },
+    {
+      "id": "resona",
+      "name": "りそな銀行",
+      "category": "megabank",
+      "variableRate": 0.385,
+      "rateNote": "住宅ローン 変動金利型。融資手数料型・最大引下げ適用後。",
+      "campaign": {
+        "title": "団信革命（特定状態・3大疾病保障）付帯オプション",
+        "deadline": null
+      },
+      "screening": {
+        "minIncome": 200,
+        "conditions": ["借入時年齢満20歳以上満70歳未満", "完済時満80歳未満", "団信加入必須"]
+      },
+      "officialUrl": "https://www.resonabank.co.jp/kojin/jutaku/",
+      "updatedAt": "2026-06-01T09:00:00+09:00"
+    },
+    {
+      "id": "sony",
+      "name": "ソニー銀行",
+      "category": "net",
+      "variableRate": 0.397,
+      "rateNote": "住宅ローン 変動セレクト住宅ローン。新規購入・自己資金10%以上。",
+      "campaign": {
+        "title": "がん団信50%を無料付帯（変動セレクト）",
+        "deadline": null
+      },
+      "screening": {
+        "minIncome": 400,
+        "conditions": ["前年度年収400万円以上", "完済時満85歳未満", "団信加入必須"]
+      },
+      "officialUrl": "https://moneykit.net/visitor/hl/",
+      "updatedAt": "2026-06-01T09:00:00+09:00"
+    },
+    {
+      "id": "smbc",
+      "name": "三井住友銀行",
+      "category": "megabank",
+      "variableRate": 0.475,
+      "rateNote": "住宅ローン WEB申込専用 変動金利。最大引下げ適用後。",
+      "campaign": {
+        "title": "クロスサポート（夫婦連生団信）オプション",
+        "deadline": null
+      },
+      "screening": {
+        "minIncome": 200,
+        "conditions": ["借入時年齢満18歳以上満70歳未満", "完済時満80歳未満", "団信加入必須"]
+      },
+      "officialUrl": "https://www.smbc.co.jp/kojin/jutaku/",
+      "updatedAt": "2026-06-01T09:00:00+09:00"
+    },
+    {
+      "id": "rakuten",
+      "name": "楽天銀行",
+      "category": "net",
+      "variableRate": 0.524,
+      "rateNote": "住宅ローン（金利選択型）変動金利。住宅ローン契約者は楽天銀行ハッピープログラム優遇。",
+      "campaign": {
+        "title": "楽天ポイント進呈・SPU優遇",
+        "deadline": null
+      },
+      "screening": {
+        "minIncome": 400,
+        "conditions": ["前年度年収400万円以上", "完済時満80歳未満", "団信加入必須"]
+      },
+      "officialUrl": "https://www.rakuten-bank.co.jp/home-loan/",
+      "updatedAt": "2026-06-01T09:00:00+09:00"
+    }
+  ]
+}
