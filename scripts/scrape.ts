@@ -59,32 +59,46 @@ async function fetchText(url: string): Promise<string> {
  * 取得失敗時は「不明」として true を返すのではなく、安全側に倒して false を返す。
  */
 async function isAllowedByRobots(targetUrl: string): Promise<boolean> {
-  try {
-    const u = new URL(targetUrl);
-    const robotsUrl = `${u.origin}/robots.txt`;
-    const body = await fetchText(robotsUrl);
+  const u = new URL(targetUrl);
+  const robotsUrl = `${u.origin}/robots.txt`;
 
-    const disallows: string[] = [];
-    let appliesToAll = false;
-    for (const rawLine of body.split('\n')) {
-      const line = rawLine.replace(/#.*$/, '').trim();
-      if (!line) continue;
-      const [keyRaw, ...rest] = line.split(':');
-      const key = keyRaw.toLowerCase().trim();
-      const val = rest.join(':').trim();
-      if (key === 'user-agent') {
-        appliesToAll = val === '*';
-      } else if (key === 'disallow' && appliesToAll && val) {
-        disallows.push(val);
-      }
+  let body: string;
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+    const res = await fetch(robotsUrl, {
+      headers: { 'User-Agent': USER_AGENT },
+      signal: controller.signal,
+    });
+    clearTimeout(timer);
+
+    // 404 = robots.txt が存在しない = 制限なし → 許可
+    if (res.status === 404) return true;
+    if (!res.ok) {
+      console.warn(`[scrape] robots.txt ${res.status}: ${robotsUrl} → スキップ`);
+      return false;
     }
-    return !disallows.some((d) => u.pathname.startsWith(d));
+    body = await res.text();
   } catch (err) {
-    console.warn(
-      `[scrape] robots.txt 取得失敗のためスキップ: ${targetUrl} (${(err as Error).message})`
-    );
-    return false; // 取れない＝叩かない（安全側）
+    console.warn(`[scrape] robots.txt 取得エラー: ${robotsUrl} (${(err as Error).message}) → スキップ`);
+    return false;
   }
+
+  const disallows: string[] = [];
+  let appliesToAll = false;
+  for (const rawLine of body.split('\n')) {
+    const line = rawLine.replace(/#.*$/, '').trim();
+    if (!line) continue;
+    const [keyRaw, ...rest] = line.split(':');
+    const key = keyRaw.toLowerCase().trim();
+    const val = rest.join(':').trim();
+    if (key === 'user-agent') {
+      appliesToAll = val === '*';
+    } else if (key === 'disallow' && appliesToAll && val) {
+      disallows.push(val);
+    }
+  }
+  return !disallows.some((d) => u.pathname.startsWith(d));
 }
 
 async function fetchOne(source: Source): Promise<FetchResult> {

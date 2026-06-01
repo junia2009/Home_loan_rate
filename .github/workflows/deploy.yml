@@ -10,7 +10,6 @@ permissions:
   pages: write
   id-token: write
 
-# 同時デプロイは1つに絞る（後勝ち）
 concurrency:
   group: pages
   cancel-in-progress: true
@@ -30,12 +29,17 @@ jobs:
 
       - run: npm test
 
+      # デプロイのたびに最新金利を取得。失敗した銀行は前回値を保持。
+      # GitHub Actions ランナーは外部サイトにアクセスできるためここで実行する。
+      - name: Scrape latest rates
+        run: npm run scrape
+        continue-on-error: true   # 全滅してもデプロイは止めない
+
       - name: Build (static export)
         run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: /Home_loan_rate
 
-      # Jekyll 処理を無効化（Next.js の _next/ ディレクトリが必要）
       - run: touch out/.nojekyll
 
       - uses: actions/upload-pages-artifact@v3
