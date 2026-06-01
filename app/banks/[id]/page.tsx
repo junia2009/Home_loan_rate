@@ -110,24 +110,37 @@ export default function BankDetailPage({ params }: Props) {
         </section>
       </div>
 
-      {/* 公式サイト */}
-      <section className="rounded-lg border border-brand-200 bg-brand-50 p-4 flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <p className="font-medium text-slate-800">
-            最新の金利・詳細は公式サイトでご確認ください
-          </p>
-          <p className="text-xs text-slate-500">
-            最終更新: {formatDate(bank.updatedAt)}
-          </p>
+      {/* 公式サイト・情報元 */}
+      <section className="rounded-lg border border-brand-200 bg-brand-50 p-4 space-y-3">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <p className="font-medium text-slate-800">
+              最新の金利・詳細は公式サイトでご確認ください
+            </p>
+            <p className="text-xs text-slate-500">
+              最終更新: {formatDate(bank.updatedAt)}
+            </p>
+          </div>
+          <a
+            href={bank.officialUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-lg bg-brand-600 px-5 py-2.5 text-white font-medium hover:bg-brand-700 transition"
+          >
+            {bank.name}の公式サイトへ ↗
+          </a>
         </div>
-        <a
-          href={bank.officialUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rounded-lg bg-brand-600 px-5 py-2.5 text-white font-medium hover:bg-brand-700 transition"
-        >
-          {bank.name}の公式サイトへ ↗
-        </a>
+        <div className="border-t border-brand-200 pt-3">
+          <p className="text-xs text-slate-500 mb-1">情報元 URL</p>
+          <a
+            href={bank.officialUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-brand-600 hover:underline break-all"
+          >
+            {bank.officialUrl}
+          </a>
+        </div>
       </section>
 
       <p className="text-xs text-slate-400">
