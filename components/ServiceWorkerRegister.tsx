@@ -2,7 +2,8 @@
 
 import { useEffect } from 'react';
 
-/** PWA 用 Service Worker を登録するクライアントコンポーネント */
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
 export function ServiceWorkerRegister() {
   useEffect(() => {
     if (
@@ -10,7 +11,7 @@ export function ServiceWorkerRegister() {
       'serviceWorker' in navigator &&
       process.env.NODE_ENV === 'production'
     ) {
-      navigator.serviceWorker.register('/sw.js').catch((err) => {
+      navigator.serviceWorker.register(`${BASE}/sw.js`, { scope: `${BASE}/` }).catch((err) => {
         console.error('SW registration failed:', err);
       });
     }

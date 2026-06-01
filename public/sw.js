@@ -1,17 +1,12 @@
 /* 住宅ローン金利ナビ - Service Worker
- * シンプルなオフライン対応:
- *  - ナビゲーション: ネットワーク優先 → 失敗時はキャッシュ
- *  - 静的アセット: キャッシュ優先 → なければ取得してキャッシュ
+ * - ナビゲーション: ネットワーク優先 → 失敗時はキャッシュ（オフライン対応）
+ * - 静的アセット: キャッシュ優先 → なければ取得してキャッシュ
+ * APP_SHELL のハードコードはしない（basePath が環境によって異なるため、
+ * 訪問したページ・アセットを随時キャッシュする方式）
  */
-const CACHE = 'kinri-navi-v1';
-const APP_SHELL = ['/', '/simulation', '/manifest.json', '/icons/icon.svg'];
+const CACHE = 'kinri-navi-v2';
 
-self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE).then((cache) => cache.addAll(APP_SHELL)).catch(() => {})
-  );
-  self.skipWaiting();
-});
+self.addEventListener('install', () => self.skipWaiting());
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
@@ -37,12 +32,14 @@ self.addEventListener('fetch', (event) => {
           caches.open(CACHE).then((c) => c.put(request, copy));
           return res;
         })
-        .catch(() => caches.match(request).then((r) => r || caches.match('/')))
+        .catch(() =>
+          caches.match(request).then((r) => r ?? fetch(request))
+        )
     );
     return;
   }
 
-  // それ以外はキャッシュ優先
+  // 静的アセットはキャッシュ優先
   event.respondWith(
     caches.match(request).then(
       (cached) =>

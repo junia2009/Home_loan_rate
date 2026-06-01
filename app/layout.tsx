@@ -7,7 +7,6 @@ export const metadata: Metadata = {
   title: '住宅ローン金利ナビ | 変動金利を一覧で比較',
   description:
     '各銀行の住宅ローン変動金利を一覧で比較。借入額・期間を入れて月々の返済額をシミュレーションできます。',
-  manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
