@@ -61,7 +61,12 @@ export default function RootLayout({
               <p>
                 ※ 本サイトの金利・条件は参考情報です。最新かつ正確な情報は必ず各銀行の公式サイトでご確認ください。
               </p>
-              <p>© {new Date().getFullYear()} 住宅ローン金利ナビ</p>
+              <p className="flex gap-4">
+                <Link href="/disclaimer" className="hover:underline">
+                  免責事項
+                </Link>
+                <span>© {new Date().getFullYear()} 住宅ローン金利ナビ</span>
+              </p>
             </div>
           </footer>
         </div>

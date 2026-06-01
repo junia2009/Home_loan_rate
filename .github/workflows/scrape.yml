@@ -1,0 +1,52 @@
+name: 月次 金利スクレイピング
+
+# 毎月 1日 と 16日 の 00:15 UTC（=09:15 JST）に実行。
+# 金利改定は月初・月中に行われることが多いため月2回チェックする。
+on:
+  schedule:
+    - cron: '15 0 1,16 * *'
+  workflow_dispatch: {} # 手動実行も可能
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # 金利取得（失敗した銀行は前回値を保持。全滅時は非ゼロ終了で気づける）
+      - name: Scrape rates
+        id: scrape
+        run: npm run scrape
+        continue-on-error: true
+
+      - name: Run tests
+        run: npm test
+
+      - name: Commit updated rates
+        run: |
+          if git diff --quiet data/banks.json; then
+            echo "金利の変更はありませんでした"
+          else
+            git config user.name  "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add data/banks.json
+            git commit -m "chore: 住宅ローン金利を自動更新 ($(date -u +%Y-%m-%d))"
+            git push
+          fi
+
+      # スクレイピングが全滅した場合はジョブを失敗扱いにして通知が飛ぶようにする
+      - name: Fail if scrape produced no results
+        if: steps.scrape.outcome == 'failure'
+        run: |
+          echo "::error::金利を1件も取得できませんでした。サイト構造変更 or ネットワークを確認してください。"
+          exit 1
