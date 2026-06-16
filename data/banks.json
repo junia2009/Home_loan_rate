@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-01T09:00:00+09:00",
-  "source": "※金利はサンプルデータです。イオン銀行のみ2026年6月時点の公式サイト値を反映。他行は要確認。実運用ではスクレイピングで更新（scripts/scrape.ts 参照）",
+  "lastUpdated": "2026-06-16T01:31:27.829Z",
+  "source": "公式サイトより取得（2026/6/16時点・成功3/失敗9）",
   "banks": [
     {
       "id": "sbi-shinsei",
@@ -48,7 +48,7 @@
       "id": "aujibun",
       "name": "auじぶん銀行",
       "category": "net",
-      "variableRate": 0.329,
+      "variableRate": 1.08,
       "rateNote": "全期間引下げプラン 変動金利。au金利優遇割の適用前。【※サンプル値・要確認】",
       "campaign": {
         "title": "au金利優遇割で年-0.10%（じぶんでんき・auモバイル）",
@@ -63,7 +63,7 @@
         ]
       },
       "officialUrl": "https://www.jibunbank.co.jp/products/homeloan/",
-      "updatedAt": "2026-06-01T09:00:00+09:00"
+      "updatedAt": "2026-06-16T01:31:27.829Z"
     },
     {
       "id": "paypay",
@@ -89,7 +89,7 @@
       "id": "mufg",
       "name": "三菱UFJ銀行",
       "category": "megabank",
-      "variableRate": 0.345,
+      "variableRate": 0.945,
       "rateNote": "ずっと一律金利プラン 変動金利（住宅ローン取扱手数料型）。最大優遇適用後。【※サンプル値・要確認】",
       "campaign": {
         "title": "7大疾病保障付き住宅ローン ビッグ&セブン Plus",
@@ -104,7 +104,7 @@
         ]
       },
       "officialUrl": "https://www.bk.mufg.jp/kariru/jutaku/",
-      "updatedAt": "2026-06-01T09:00:00+09:00"
+      "updatedAt": "2026-06-16T01:31:27.829Z"
     },
     {
       "id": "mizuho",
@@ -152,7 +152,7 @@
       "id": "aeon",
       "name": "イオン銀行",
       "category": "other",
-      "variableRate": 1.18,
+      "variableRate": 1.13,
       "rateNote": "変動金利。物件価格の80%超借入の場合、店頭表示利率(年3.22%)より最大年▲2.04%優遇適用後。",
       "campaign": {
         "title": "イオングループでの買い物が毎日5%OFF（特典付き）",
@@ -167,7 +167,7 @@
         ]
       },
       "officialUrl": "https://www.aeonbank.co.jp/housing_loan/",
-      "updatedAt": "2026-06-01T09:00:00+09:00"
+      "updatedAt": "2026-06-16T01:31:27.829Z"
     },
     {
       "id": "resona",
