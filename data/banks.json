@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-16T01:31:27.829Z",
-  "source": "公式サイトより取得（2026/6/16時点・成功3/失敗9）",
+  "lastUpdated": "2026-07-01T01:23:09.901Z",
+  "source": "公式サイトより取得（2026/7/1時点・成功3/失敗9）",
   "banks": [
     {
       "id": "sbi-shinsei",
@@ -152,7 +152,7 @@
       "id": "aeon",
       "name": "イオン銀行",
       "category": "other",
-      "variableRate": 1.13,
+      "variableRate": 1.04,
       "rateNote": "変動金利。物件価格の80%超借入の場合、店頭表示利率(年3.22%)より最大年▲2.04%優遇適用後。",
       "campaign": {
         "title": "イオングループでの買い物が毎日5%OFF（特典付き）",
@@ -167,7 +167,7 @@
         ]
       },
       "officialUrl": "https://www.aeonbank.co.jp/housing_loan/",
-      "updatedAt": "2026-06-16T01:31:27.829Z"
+      "updatedAt": "2026-07-01T01:23:09.901Z"
     },
     {
       "id": "resona",
