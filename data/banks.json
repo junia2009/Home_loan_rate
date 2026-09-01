@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-08-16T00:26:06.618Z",
-  "source": "公式サイトより取得（2026/8/16時点・成功3/失敗9）",
+  "lastUpdated": "2026-09-01T01:09:15.055Z",
+  "source": "公式サイトより取得（2026/9/1時点・成功3/失敗9）",
   "banks": [
     {
       "id": "sbi-shinsei",
@@ -89,7 +89,7 @@
       "id": "mufg",
       "name": "三菱UFJ銀行",
       "category": "megabank",
-      "variableRate": 0.945,
+      "variableRate": 1.195,
       "rateNote": "ずっと一律金利プラン 変動金利（住宅ローン取扱手数料型）。最大優遇適用後。【※サンプル値・要確認】",
       "campaign": {
         "title": "7大疾病保障付き住宅ローン ビッグ&セブン Plus",
@@ -104,7 +104,7 @@
         ]
       },
       "officialUrl": "https://www.bk.mufg.jp/kariru/jutaku/",
-      "updatedAt": "2026-06-16T01:31:27.829Z"
+      "updatedAt": "2026-09-01T01:09:15.055Z"
     },
     {
       "id": "mizuho",
