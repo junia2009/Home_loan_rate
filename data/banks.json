@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-09-16T00:58:09.888Z",
-  "source": "公式サイトより取得（2026/9/16時点・成功3/失敗9）",
+  "lastUpdated": "2026-10-01T01:12:41.636Z",
+  "source": "公式サイトより取得（2026/10/1時点・成功2/失敗10）",
   "banks": [
     {
       "id": "sbi-shinsei",
@@ -48,7 +48,7 @@
       "id": "aujibun",
       "name": "auじぶん銀行",
       "category": "net",
-      "variableRate": 1.08,
+      "variableRate": 1.68,
       "rateNote": "全期間引下げプラン 変動金利。au金利優遇割の適用前。【※サンプル値・要確認】",
       "campaign": {
         "title": "au金利優遇割で年-0.10%（じぶんでんき・auモバイル）",
@@ -63,7 +63,7 @@
         ]
       },
       "officialUrl": "https://www.jibunbank.co.jp/products/homeloan/",
-      "updatedAt": "2026-06-16T01:31:27.829Z"
+      "updatedAt": "2026-10-01T01:12:41.636Z"
     },
     {
       "id": "paypay",
